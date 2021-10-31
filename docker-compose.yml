@@ -1,0 +1,53 @@
+version: "3"
+services:
+  nginx:
+    container_name: nginx
+    depends_on:
+      - api
+      - frontend
+    build: ./nginx
+    ports:
+      - "8888:8888"
+
+  vk_parser:
+    container_name: vk_parser
+    restart: always
+    build: ./vk_parser
+
+  classifier:
+    container_name: classifier
+    restart: always
+    build: ./classifier
+
+  api:
+    container_name: api
+    restart: always
+    build: ./api
+    environment:
+      - MONGO_URI=mongodb://user:2665640@db_mongo/cheboksary?authSource=admin
+      - JWT_SECRET=9gaT2XQQ4Vs5d7yC
+      - JWT_EXPIRATION=7d
+      - ENCRYPT_JWT_SECRET=krtPfHDRjkTaA9pR
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+
+  frontend:
+    container_name: frontend
+    depends_on:
+      - api
+    restart: always
+    build: ./frontend
+    environment:
+      - NODE_ENV=production
+      - VUE_ROUTER_MODE=history
+
+  db:
+    container_name: db_mongo
+    build: ./mongodb
+    restart: always
+    volumes:
+      - cheboksary:/data/db
+
+volumes:
+  cheboksary:

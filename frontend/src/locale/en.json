@@ -1,0 +1,13 @@
+{
+    "CommentsButton": "Comments",
+    "MarkersButton": "Markers",
+    "UsersButton": "Users",
+    "MarkerButton": "Marker",
+    "ExitButton": "Logout",
+    "LoginButton": "Login",
+    "ChooseMarker": "Choose a marker!",
+    "GetFirstComment": "Be the first to comment!",
+    "Comment": "Comment",
+    "Comments": "Comments",
+    "Register": "Register"
+}
