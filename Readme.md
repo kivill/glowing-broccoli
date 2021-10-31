@@ -35,7 +35,7 @@
 ------------
 Классификатор
 ```
-curl —location —request POST '127.0.0.1:1001/' \
+curl —location —request POST 'localhost/classifier/prediction' \
 --form 'msg="Во всем микрорайоне разваливается асфальт"'
 ```
 
