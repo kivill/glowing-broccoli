@@ -93,7 +93,6 @@ newgrp docker
 ~~~
 git clone https://github.com/kivill/glowing-broccoli.git 
 cd ./glowing-broccoli
-docker-compose -f "docker-compose.yml" up -d --build
 ~~~
 
 Скачать модель https://dropmefiles.com/lajrk и закинуть ее в `\glowing-broccoli\classifier\keras_classifier\classifier\keras_models`
